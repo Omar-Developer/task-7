@@ -1,0 +1,247 @@
+{
+  "intents": [
+    {
+      "intent": "SpeedRate1",
+      "examples": [
+        {
+          "text": "Are you moving at a constant speed?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "spead",
+      "examples": [
+        {
+          "text": "speed type?"
+        },
+        {
+          "text": "What kind of movement do you move with?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "SpeedRate2",
+      "examples": [
+        {
+          "text": "Are you moving with increasing speed ?"
+        },
+        {
+          "text": "are you moving at a variable speed ?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "movement",
+      "examples": [
+        {
+          "text": "If you come across something blocking your way, what will you do?"
+        },
+        {
+          "text": "If you can't move, what will you do ?"
+        },
+        {
+          "text": "what will you do if you can't move ?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "def",
+      "examples": [
+        {
+          "text": "What can you do ?"
+        },
+        {
+          "text": "what is your mission ?"
+        },
+        {
+          "text": "Who are you ?"
+        },
+        {
+          "text": "What is your job ?"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Speed ​​type",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "It is cm"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#spead",
+      "dialog_node": "node_5_1594804309548",
+      "previous_sibling": "node_2_1594806411793"
+    },
+    {
+      "type": "standard",
+      "title": "Speed rate2",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "no,I'm not!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#SpeedRate2",
+      "dialog_node": "node_7_1594818789095",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "Definition ",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I am a robot, my job is to go to the places you want! By using the control buttons shown on the right of the screen !"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#def",
+      "dialog_node": "node_2_1594804109043",
+      "previous_sibling": "node_5_1594804309548"
+    },
+    {
+      "type": "standard",
+      "title": "movement",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I will stop and then give an alert to the user that there is something blocking my movement"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#movement",
+      "dialog_node": "node_2_1594806411793",
+      "previous_sibling": "node_5_1594818701467"
+    },
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't get your meaning"
+              },
+              {
+                "text": "i didn't understand"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_2_1594804109043",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "Speed rate1",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "yes i am !"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#SpeedRate1",
+      "dialog_node": "node_5_1594818701467",
+      "previous_sibling": "node_7_1594818789095"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello. I am a robot, give me the directions you want me to go to, or ask about me or about my mission that I can do for you !"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "system_entities": {
+      "enabled": true
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "My first skill",
+  "language": "en",
+  "description": ""
+}
